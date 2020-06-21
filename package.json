@@ -1,0 +1,17 @@
+{
+  "name": "StarLog-Game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KevsonDoc/StarLog-Game.git",
+  "author": "KevsonDoc <kevsonfilipesantos@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "bootstrap4": "^0.0.1-security",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}

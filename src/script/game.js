@@ -1,4 +1,3 @@
-function start() {
     var config = {
         type: Phaser.AUTO,
         width: 800,
@@ -26,6 +25,12 @@ function start() {
     var vida2 = 200;
     var boolea = false;
     var vida3;
+    var controls = {};
+    var spaceBar;
+    var info;
+
+    var status = false;
+
     function preload() {
         this.load.image('galaxia1', '/world/galaxia1.png');
         this.load.image('laser', '/world/phaser.png')
@@ -89,27 +94,44 @@ function start() {
             fontSize: '32px',
             fill: '#8B0000'
         });
+
     }
+
     var jahfoi = false;
+
     function update() {
-        cursors = this.input.keyboard.createCursorKeys();
-        if (cursors.left.isDown) {
-            player.setVelocityX(-1000);
-            //player.anims.play('left', true);
-        } else if (cursors.right.isDown) {
-            player.setVelocityX(1000);
-            //player.anims.play('right', true);
-        } else {
-            player.setVelocityX(0);
-            //player.anims.play('turn');
-        }
-        if (cursors.up.isDown) {
+        this.input.keyboard.on('keydown-W', () => {
             player.setVelocityY(-1000);
-        } else if (cursors.down.isDown) {
-            player.setVelocityY(1000);
-        } else {
+        });
+
+        this.input.keyboard.on('keyup-W', () => {
             player.setVelocityY(0);
-        }
+        })
+        
+        this.input.keyboard.on('keydown-A', () => {
+            player.setVelocityX(-1000);
+        });
+
+        this.input.keyboard.on('keyup-A', () => {
+            player.setVelocityX(0);
+        });
+
+        this.input.keyboard.on('keydown-D', () => {
+            player.setVelocityX(1000);
+        });
+
+        this.input.keyboard.on('keyup-D', () => {
+            player.setVelocityX(0);
+        });
+
+        this.input.keyboard.on('keydown-S', () => {
+            player.setVelocityY(1000);
+        });
+
+        this.input.keyboard.on('keyup-S', () => {
+            player.setVelocityY(0);
+        });
+
         var scene = this;
         /*Primeiro construo a fuunção de mouse para o click 
         JAHFOI recebe falso para o mouse não disparar varios eventos
@@ -164,5 +186,3 @@ function start() {
             }
         }
     }
-    return "Bom Jogo";
-}

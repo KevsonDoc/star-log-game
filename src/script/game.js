@@ -28,6 +28,7 @@
     var controls = {};
     var spaceBar;
     var info;
+    var hero = true;
 
     var status = false;
 
@@ -74,10 +75,9 @@
         asteroid.setCollideWorldBounds(true);
         asteroid.setVelocityX(280);
         asteroid.setBounce(Phaser.Math.FloatBetween(1, 1));
+
         //Reação de colisão
-        /*bombs.children.iterate(function(child) {
-            child.setBounce(Phaser.Math.FloatBetween(1, 1));
-        });*/
+
         bombs.children.iterate(function(chil) {
             chil.setBounce(Phaser.Math.FloatBetween(0.9, 0.5));
         });
@@ -100,6 +100,7 @@
     var jahfoi = false;
 
     function update() {
+        // Keyboard
         this.input.keyboard.on('keydown-W', () => {
             player.setVelocityY(-1000);
         });
@@ -132,7 +133,6 @@
             player.setVelocityY(0);
         });
 
-        var scene = this;
         /*Primeiro construo a fuunção de mouse para o click 
         JAHFOI recebe falso para o mouse não disparar varios eventos
         linha 101 carrega a animação do laser e pposiciona nas cordenadas
@@ -140,19 +140,28 @@
         Linha 102 dispara a animação na velocidade indicada
         jahfoi recebe true para disparar apenas 1 click de evento
         */
-        this.input.on('pointerdown', function(pointer) {
+
+       var scene = this;
+
+        //Dispara o phaser
+        this.input.on('pointerdown', (pointer) => {
             if (jahfoi)
                 return;
-            catapimbas = scene.physics.add.sprite(player.x, player.y, 'laser');
-            catapimbas.setVelocityY(-1000);
-            jahfoi = true;
+            if (hero === true) {
+                catapimbas = scene.physics.add.sprite(player.x, player.y, 'laser');
+                catapimbas.setVelocityY(-1000);
+                jahfoi = true;
+            } else if (hero === false) {
+                return;
+            }
         });
+
         /*jhafoi recebe false para zerar o click do evento fazendo com 
         se dispare apenas um laser po vez*/
-        this.input.on('pointerup', function(pointer) {
+        this.input.on('pointerup', (pointer) => {
             jahfoi = false;
         });
-        //asteroid.setVelocityX(400);
+
         this.physics.add.collider(asteroid, catapimbas, coletar, null, scene);
         function coletar(asteroid, catapimbas) {
             if (boolea == false) {
@@ -166,10 +175,13 @@
                         fill: '#00008B'
                     });
                     this.physics.pause();
+                    jahfoi = false;
+                    hero = false;
                 }
                 catapimbas.disableBody(true, true);
             }
         }
+
                 //Vida do jogador e colisão com bombas
         this.physics.add.collider(player, bombs, colisao, null, scene);
         function colisao(player, bomb) {
@@ -183,6 +195,7 @@
                 });
                 gameOver.setText('Game Over');
                 this.physics.pause();
+                hero = false;
             }
         }
     }

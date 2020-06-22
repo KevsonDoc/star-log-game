@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'font-game';
+    src: url("/font/Games.ttf");
+}
+
+section#home {
+    height: 100vh;
+    width: 100%;
+    background-color: royalblue;
+    display: flexbox;
+}
+
+
+.start {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+}
+
+.title-start {
+    font-size: 25vh;
+    font-family: 'font-game', sans-serif;
+}

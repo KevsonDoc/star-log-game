@@ -10,9 +10,3 @@ section .navbar {
 #navbarSupportedContent {
     margin-left: 60%;
 }
-
-section#home {
-    height: 100vh;
-    width: 100%;
-    background-color: royalblue;
-}

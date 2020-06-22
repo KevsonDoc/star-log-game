@@ -1,7 +1,9 @@
     var config = {
-        type: Phaser.AUTO,
+        type: Phaser.CANVAS,
         width: 800,
         height: 600,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        autoRound: 20,
         physics: {
             default: 'arcade',
             arcade: {
@@ -133,15 +135,8 @@
             player.setVelocityY(0);
         });
 
-        /*Primeiro construo a fuunção de mouse para o click 
-        JAHFOI recebe falso para o mouse não disparar varios eventos
-        linha 101 carrega a animação do laser e pposiciona nas cordenadas
-        do jogador
-        Linha 102 dispara a animação na velocidade indicada
-        jahfoi recebe true para disparar apenas 1 click de evento
-        */
-
-       var scene = this;
+        //Phaser
+        var scene = this;
 
         //Dispara o phaser
         this.input.on('pointerdown', (pointer) => {

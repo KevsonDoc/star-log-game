@@ -21,6 +21,6 @@ server.use('/bootstrap/js', express.static(__dirname + '/bootstrap/js'));
 server.use('/css', express.static(__dirname + '/css'));
 server.use('/font', express.static(__dirname + '/fonts'));
 
-server.listen(2000, () => {
+server.listen(process.env.PORT || 2000, () => {
     console.log('\n\n\n\================= | Stonks | =================\n\n\n');
 });

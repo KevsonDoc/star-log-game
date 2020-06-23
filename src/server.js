@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const server = express();
 
@@ -11,6 +12,7 @@ server.get('/star', (resquest, response) => {
     response.sendFile(__dirname + '/static/game.html')
 });
 
+server.use(cors());
 server.use('/game', express.static(__dirname + '/script'));
 server.use('/phaser', express.static(__dirname + '/phaser'));
 server.use('/world', express.static(__dirname + '/assets'));

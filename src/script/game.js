@@ -1,9 +1,8 @@
     var config = {
         type: Phaser.CANVAS,
         width: 800,
-        height: 600,
-        autoCenter: Phaser.Scale.CENTER_BOTH,
-        autoRound: 20,
+        height: 550,
+        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,        
         physics: {
             default: 'arcade',
             arcade: {
@@ -58,8 +57,8 @@
         player.setCollideWorldBounds(true);
         //bombs
         bombs = this.physics.add.group();
-        var bomb = [10];
-        for (var i = 0; i < 10; i++) {
+        var bomb = [20];
+        for (var i = 0; i < 20; i++) {
             var a = Math.floor(Math.random() * 400 + 150);
             var b = Math.floor(Math.random() * 400 + 150);
             bomb[i] = bombs.create(a, b, 'bomb');
@@ -81,7 +80,7 @@
         //Reação de colisão
 
         bombs.children.iterate(function(chil) {
-            chil.setBounce(Phaser.Math.FloatBetween(0.9, 0.5));
+            chil.setBounce(Phaser.Math.FloatBetween(0.9, 0.6));
         });
         //Animação da explosão
         this.anims.create({
@@ -160,7 +159,7 @@
         this.physics.add.collider(asteroid, catapimbas, coletar, null, scene);
         function coletar(asteroid, catapimbas) {
             if (boolea == false) {
-                vida = vida - 20;
+                vida = vida - 5;
                 vida3.setText('VIDA ASTEROID: ' + vida);
                 if (vida == 0) {
                     boolea = true;

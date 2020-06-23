@@ -22,7 +22,7 @@
     var catapimbas;
     var player;
     var asteroid;
-    var vida = 200;
+    var vida = 3000;
     var vida2 = 200;
     var boolea = false;
     var vida3;

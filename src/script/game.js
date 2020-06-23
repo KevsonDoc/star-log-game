@@ -103,7 +103,7 @@
     function update() {
         // Keyboard
         this.input.keyboard.on('keydown-W', () => {
-            player.setVelocityY(-1000);
+            player.setVelocityY(-900);
         });
 
         this.input.keyboard.on('keyup-W', () => {
@@ -111,7 +111,7 @@
         })
         
         this.input.keyboard.on('keydown-A', () => {
-            player.setVelocityX(-1000);
+            player.setVelocityX(-900);
         });
 
         this.input.keyboard.on('keyup-A', () => {
@@ -119,7 +119,7 @@
         });
 
         this.input.keyboard.on('keydown-D', () => {
-            player.setVelocityX(1000);
+            player.setVelocityX(900);
         });
 
         this.input.keyboard.on('keyup-D', () => {
@@ -127,7 +127,7 @@
         });
 
         this.input.keyboard.on('keydown-S', () => {
-            player.setVelocityY(1000);
+            player.setVelocityY(900);
         });
 
         this.input.keyboard.on('keyup-S', () => {

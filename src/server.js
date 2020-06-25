@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const server = express();
 
-server.get('/', (resquest, response) => {
+server.get('/home', (resquest, response) => {
     response.sendFile(__dirname + '/static/index.html')
 });
 

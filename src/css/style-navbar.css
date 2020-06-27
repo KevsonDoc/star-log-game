@@ -9,5 +9,9 @@ section .navbar {
 }
 
 #navbarSupportedContent {
-    margin-left: 60%;
+    margin-left: 70%;
+}
+
+#link {
+    color: whitesmoke;
 }
